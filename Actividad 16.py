@@ -18,8 +18,23 @@ class Usuarios:
         print(f"Carnet: {self.carnet} Nombre: {self.nombre} Carrera: {self.carrera}")
 
 class ManipularLibros:
-    def __init__(self, libros):
-        self.libros = libros
+    def __init__(self):
+        self.libros = {}
+
+    def agregar(self):
+        try:
+            while True:
+                try:
+                    pass
+                except Exception as e:
+                    print(f"Error: {e}")
+        except Exception as e:
+            print(f"Error: {e}")
+
+class ManipularUsuarios:
+    def __init__(self, usuarios):
+        self.usuarios = usuarios
 
 
+usuarios = {}
 libros = {}
