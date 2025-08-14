@@ -5,26 +5,25 @@ class Libros:
         self.año = año
         self.prestado = prestado
 
-    def __str__(self):
+    def mostrar_info(self):
         if self.prestado:
-            print(f"Autor: {self.autor} Año: {self.año} Titulo: {self.titulo} Prestado: Si")
+            return f"Autor: {self.autor} | Año: {self.año} | Titulo: {self.titulo} | Prestado: Si"
         else:
-            print(f"Autor: {self.autor} Año: {self.año} Titulo: {self.titulo} Prestado: No")
+            return f"Autor: {self.autor} | Año: {self.año} | Titulo: {self.titulo} | Prestado: No"
 
 class Usuarios:
-    def __init__(self, nombre, carnet, carrera):
+    def __init__(self, nombre, carrera):
         self.nombre = nombre
-        self.carnet = carnet
         self.carrera = carrera
 
-    def __str__(self):
-        print(f"Carnet: {self.carnet} Nombre: {self.nombre} Carrera: {self.carrera}")
+    def mostrar_info(self):
+        print(f"Nombre: {self.nombre} | Carrera: {self.carrera}")
 
 class ManipularLibros:
     def __init__(self):
         self.libros = {}
 
-    def agregar(self):
+    def agregar_Libros(self):
         try:
             while True:
                 try:
@@ -56,15 +55,29 @@ class ManipularLibros:
                         print("EL año del libro no es válido: ")
                 except Exception as e:
                     print(f"Error: {e}")
-            prestado = False
+            prestado = True
             self.libros[codigo] = Libros(titulo, autor, año, prestado)
+            print("Libro agregado!!")
         except Exception as e:
             print(f"Error: {e}")
+
+    def mostrar_libros(self):
+        if self.libros:
+            for codigo, libro in self.libros.items():
+                print(f"Codigo: {codigo} | {libro.mostrar_info()}")
 
 class ManipularUsuarios:
     def __init__(self, usuarios):
         self.usuarios = usuarios
 
+    def agregar_Usuario(self):
+        pass
+
+
 
 usuarios = {}
 libros = {}
+
+mani = ManipularLibros()
+mani.agregar_Libros()
+mani.mostrar_libros()
